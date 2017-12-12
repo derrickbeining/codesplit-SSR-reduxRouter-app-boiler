@@ -1,0 +1,18 @@
+/// Forces browsers to use hardware acceleration for transforms
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include ha;
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-transform: translate3d(0, 0, 0);
+///     -moz-transform: translate3d(0, 0, 0);
+///     transform: translate3d(0, 0, 0);
+///   }
+@import './prefix';
+
+@mixin accelerate {
+  @include prefix(transform, translate3d(0, 0, 0), 'webkit' 'ms' 'moz');
+  -o-transform: translateZ(0);
+}

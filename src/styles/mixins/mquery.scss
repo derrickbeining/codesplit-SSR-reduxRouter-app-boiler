@@ -1,0 +1,25 @@
+/// Media query helper for declaring media queries by width, and, optionally, ratio.
+/// @access public
+/// @param {Length} $width - Max-width
+/// @param {Number | False} $ratio [false] - Min device pixel ratio
+/// @example scss - Usage
+///   .foo {
+///     @include mquery(350px, 2) {
+///       width: 100%;
+///     }
+///   }
+
+@mixin mquery($width, $ratio: false) {
+  @if $ratio {
+      @media
+          only screen and (max-width: $width) and  (min--moz-device-pixel-ratio: $ratio),
+          only screen and (max-width: $width) and  (-webkit-min-device-pixel-ratio: $ratio),
+          only screen and (max-width: $width) and  (min-device-pixel-ratio: $ratio) {
+          @content;
+      }
+  } @else {
+      @media only screen and (max-width: $width) {
+          @content;
+      }
+  }
+}

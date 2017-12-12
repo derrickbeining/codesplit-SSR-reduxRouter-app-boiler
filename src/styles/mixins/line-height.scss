@@ -1,0 +1,16 @@
+/// Generates line-height values in both pixels and rems.
+/// @access public
+/// @param {Number} $height-value [12] - Height value
+/// @example scss - Usage
+///   .foo {
+///     @include line-height(16);
+///   }
+/// @example css - Result
+///   .foo {
+///     line-height: 16px;
+///     line-height: 1rem;
+///   }
+@mixin line-height($height-value: 12) {
+  line-height: $height-value * 1px; //fallback for old browsers
+  line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1rem);
+}

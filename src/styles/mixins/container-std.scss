@@ -1,0 +1,22 @@
+@import './media-queries.scss';
+
+@mixin container-std {
+  margin: 0 auto;
+
+  @include for-phone-only {
+    width: 100%;
+  }
+  @include for-tablet-portrait-up {
+    width: 95%;
+  }
+  @include for-tablet-landscape-up {
+    width: 90%;
+  }
+  @include for-desktop-up {
+    width: 85%;
+  }
+  @include for-big-desktop-up {
+    // max-width: 1980px;
+    width: 85%;
+  }
+}

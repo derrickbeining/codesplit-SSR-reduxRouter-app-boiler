@@ -1,0 +1,25 @@
+@import './keyframes';
+@import './animation';
+@import './transform';
+@import './opacity';
+@import './prefix';
+
+@mixin slide-out-to($slide-axis: x, $slide-offset: -100px, $animation-properties: 3s ease) {
+  $slide-start: if($slide-axis == x, translateX(0), translateY(0));
+  $slide-end: if($slide-axis == x, translateX($slide-offset), translateY($slide-offset));
+
+  @include keyframes(slide-out-#{$slide-axis}-#{$slide-offset}){
+    0% {
+      @include opacity(1);
+      @include transform($slide-start);
+    }
+    75% {
+      @include opacity(0);
+    }
+    100% {
+      @include transform($slide-end);
+    }
+  }
+  @include animation(slide-out-#{$slide-axis}-#{$slide-offset} $animation-properties)
+  // @include prefix(animation, slide-in-#{$slide-axis}-#{$slide-offset} $animation-properties, 'webkit');
+}

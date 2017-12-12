@@ -1,0 +1,44 @@
+/// Generates a grow-then-shrink (or shrink-then-grow) animation using transform(scale).
+/// @access public
+/// @param {Number} $scale-change [1.1] - The amount to scale by.
+/// @param {List} $animation-properties - Animation properties to apply.
+/// @example scss - Usage
+///   .foo {
+///     @include scale(0.5, 3s ease infinite alternate);
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-animation: "scale-0-5" 3s ease infinite alternate;
+///     animation: "scale-0-5" 3s ease infinite alternate;
+///   }
+///  // -webkit- prefixed @keyframes are also generated
+///  @keyframes scale-0-5 {
+///    from, to {
+///      -webkit-transform: scale(1);
+///      -ms-transform: scale(1);
+///      transform: scale(1);
+///    }
+///    50% {
+///      -webkit-transform: scale(0.5);
+///      -ms-transform: scale(0.5);
+///      transform: scale(0.5);
+///    }
+///  }
+@import './keyframes';
+@import './transform';
+@import './prefix';
+
+@mixin scale($scale-change:1.1, $animation-properties: 1s ease-in-out) {
+  $alias: 'scale-' + str-replace($scale-change + '', '.', '-');
+
+  @include keyframes($alias){
+    0%, 100% {
+      @include transform(scale(1));
+    }
+    50% {
+      @include transform(scale($scale-change));
+    }
+  }
+
+  @include prefix(animation, $alias $animation-properties, 'webkit');
+}

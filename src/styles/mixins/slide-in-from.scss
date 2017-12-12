@@ -1,0 +1,57 @@
+/// Slide-in-from creates and calls an animation that slides an element on a given axis for a given amount of space. The offset is measured in the distance from the location the element would naturally fall in, were transforms not applied to it.
+/// @access public
+/// @param {String} $slide-axis [x] - The axis on which to slide; 'x' or 'y'.
+/// @param {Length} $slide-offset [-100px] - The offset from the natural element position from which to begin the animation.
+/// @param {List} $animation-properties [3s ease-out] - Any animation properties to be included.
+/// @example scss - Usage
+///   .foo {
+///     @include slide-in-from(y, -200px, 3s ease alternate infinite);
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-animation: slide-in-y--200px 3s linear infinite alternate;
+///     animation: slide-in-y--200px 3s linear infinite alternate;
+///   }
+///
+/// // (the @keyframes are also generated with a -webkit- vendor prefix)
+///   @keyframes slide-in-y--200px {
+///     0% {
+///       opacity: 0;
+///       -webkit-transform: translateY(-200px);
+///       -ms-transform: translateY(-200px);
+///       transform: translateY(-200px);
+///     }
+///     75% {
+///       -webkit-transform: translateY(0);
+///       -ms-transform: translateY(0);
+///       transform: translateY(0);
+///     }
+///     100% {
+///       opacity: 1;
+///     }
+///   }
+@import './keyframes';
+@import './animation';
+@import './transform';
+@import './opacity';
+@import './prefix';
+
+@mixin slide-in-from($slide-axis: x, $slide-offset: -100px, $animation-properties: 3s ease) {
+  $slide-start: if($slide-axis == x, translateX($slide-offset), translateY($slide-offset));
+  $slide-end: if($slide-axis == x, translateX(0), translateY(0));
+
+  @include keyframes(slide-in-#{$slide-axis}-#{$slide-offset}){
+    0% {
+      @include opacity(0);
+      @include transform($slide-start);
+    }
+    99% {
+      @include transform($slide-end);
+    }
+    100% {
+      @include opacity(1);
+    }
+  }
+  @include animation(slide-in-#{$slide-axis}-#{$slide-offset} #{$animation-properties})
+  // @include prefix(animation, slide-in-#{$slide-axis}-#{$slide-offset} $animation-properties, 'webkit');
+}

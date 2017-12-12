@@ -1,0 +1,19 @@
+
+/// Retina image media query helper; given an image path with a 2x-sized version of an image, will load that image as a background-image on high-resolution devices.
+/// @access public
+/// @param {String} $image - Image path
+/// @param {Length} $width - Image width
+/// @param {Height} $height - Image height
+/// @example scss - Usage
+///   .foo {
+///     @include image-2x('../images/image.png', 100%, auto);
+///   }
+@mixin image-2x($image, $width, $height) {
+  @media (-webkit-min-device-pixel-ratio: 1.3),
+         (min-resolution: 124dpi),
+         (min-resolution: 1.3dppx) {
+      /* on retina, use image that's scaled by 2 */
+      background-image: url($image);
+      background-size: $width $height;
+  }
+}

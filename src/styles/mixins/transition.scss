@@ -1,0 +1,17 @@
+/// Transition helper
+/// @param {Time} $time [1s] - Duration
+/// @param {String} $timing-function [ease-in-out] - Timing function or cubic bezier curve
+/// @example scss - Usage
+///   .foo {
+///     @include transition(0.3s, ease-in);
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-transition: all 0.3s ease-in;
+///     transition: all 0.3s ease-in;
+///   }
+@import './prefix';
+
+@mixin transition($time: 1s, $timing-function: ease-in-out) {
+  @include prefix(transition, all $time $timing-function, 'webkit moz ms');
+}

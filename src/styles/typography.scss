@@ -1,0 +1,41 @@
+@import './mixins/media-queries.scss';
+@import './mixins/font-size';
+@import './mixins/line-height';
+
+
+html{
+  line-height: 1.68;
+
+  @include for-phone-only {
+    font-size: 14px;
+  }
+  @include for-tablet-portrait-up {
+    font-size: 16px;
+  }
+  @include for-tablet-landscape-up {
+    font-size: 18px;
+  }
+  @include for-desktop-up {
+    font-size: 20px;
+  }
+  @include for-big-desktop-up {
+    font-size: 22px;
+  }
+}
+
+body {
+  font-family: 'Merriweather Sans';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather Sans';
+  margin: 1em 0 .5em 0;
+}
+
+p {
+  font-family: 'Lora';
+  line-height: 2;
+  margin: 1em 0 .5em 0;
+}
+
+

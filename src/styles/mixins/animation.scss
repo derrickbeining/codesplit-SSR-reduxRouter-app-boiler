@@ -1,0 +1,21 @@
+// example usage with @include keyframes:
+// @include keyframes(slide-down) {
+//   0% { opacity: 1; }
+//   90% { opacity: 0; }
+// }
+
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3'); // notice name matches keyframe name
+// }
+@import './prefix';
+@import './accelerate';
+
+@mixin animation($str) {
+  @include accelerate();
+  // @include prefix(visibility, hidden, 'webkit moz ms');
+  // @include prefix(perspective, 1000, 'webkit moz ms');
+  @include prefix(animation, #{$str}, 'webkit moz ms o');
+}

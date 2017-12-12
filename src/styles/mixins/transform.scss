@@ -1,0 +1,20 @@
+/// Automatically prefix any transform
+/// @access public
+/// @param {String} $transformation - The transform to apply
+/// @example scss - Usage
+///   .foo {
+///     @include transform(translateX(10px));
+///   }
+/// @example css - Result
+///   .foo {
+///     -webkit-transform: translateX(10px);
+///     -ms-transform: translateX(10px);
+///     transform: translateX(10px);
+///   }
+@import './prefix';
+@import './accelerate';
+
+@mixin transform($transformation){
+  @include accelerate();
+  @include prefix(transform, $transformation, 'webkit' 'ms');
+}

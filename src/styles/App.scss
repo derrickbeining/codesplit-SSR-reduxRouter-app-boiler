@@ -1,0 +1,47 @@
+@import '~styles/fonts';
+@import '~styles/typography';
+@import '~styles/mixins/box-sizing';
+@import '~styles/mixins/media-queries';
+@import '~styles/functions/z-index';
+
+html {
+  background-color: palegoldenrod;
+  z-index: z-index(default) - 1;
+}
+
+body {
+
+  margin: 0;
+  @include box-sizing(border-box);
+  & * {
+    @include box-sizing(inherit);
+  }
+
+
+  @include for-phone-only {
+
+  }
+  @include for-tablet-portrait-up {
+
+  }
+  @include for-tablet-landscape-up {
+
+  }
+  @include for-desktop-up {
+
+  }
+  @include for-big-desktop-up {
+
+  }
+}
+
+.app {
+  // display: -webkit-box;
+  // display: -ms-flexbox;
+  // display: flex;
+  // flex: 1 0 auto;
+  // flex-direction: column;
+  height: 100%;
+}
+
+

@@ -1,0 +1,22 @@
+$z-layers: (
+  default: 0,
+  navbar: 1,
+);
+
+@function z-index($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
+
+// example usage:
+// .overlay {
+//   z-index: z-index(bottom);
+// }
+
+// .element {
+//   z-index: (z-index(bottom) + 1);
+// }

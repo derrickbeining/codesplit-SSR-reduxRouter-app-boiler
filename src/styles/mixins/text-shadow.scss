@@ -1,0 +1,14 @@
+/// Embossing text shadow
+/// @access public
+/// @param {Float} $value - Opacity value
+/// @example scss - Usage
+///   .foo {
+///     @include text-shadow(0.5);
+///   }
+/// @example css - Result
+///   .foo {
+///     text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
+///   }
+@mixin text-shadow($value) {
+  text-shadow: rgba(255, 255, 255, $value) 0 1px 0;
+}

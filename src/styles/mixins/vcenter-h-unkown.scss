@@ -1,0 +1,21 @@
+/// Vertically centers block elements with unknown height.
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include center-h--unk;
+///   }
+/// @example css - Result
+///   .foo {
+///     position: relative;
+///     top: 50%;
+///     -webkit-transform: translateY(-50%);
+///     -ms-transform: translateY(-50%);
+///     transform: translateY(-50%);
+///   }
+@import './prefix';
+
+@mixin vcenter-h-unkown {
+  position: relative;
+  top: 50%;
+  @include prefix(transform, translateY(-50%), 'webkit' 'ms');
+}

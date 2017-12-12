@@ -1,0 +1,19 @@
+/// Background size helper
+/// @access public
+/// @param {Length} $width - Background width
+/// @param {Length} $height [$width] - Background height
+/// @example scss - Usage
+///   .foo {
+///     @include background-size(100%);
+///   }
+/// @example scss - Result
+///   .foo {
+///     -webkit-background-size: 100% 100%;
+///     -moz-background-size: 100% 100%;
+///     background-size: 100% 100%;
+///   }
+@import './prefix';
+
+@mixin background-size($width, $height: $width) {
+  @include prefix(background-size, $width $height, 'webkit' 'moz');
+}

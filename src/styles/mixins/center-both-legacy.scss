@@ -1,0 +1,24 @@
+/// Horizontally and vertically centers block elements
+/// Important: you must have a parent element with `position: relative`.
+/// @access public
+/// @example scss - Usage
+///   .foo {
+///     @include center-both;
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     top: 50%;
+///     left: 50%;
+///     -webkit-transform: translate(-50%, -50%);
+///     -ms-transform: translate(-50%, -50%);
+///     transform: translate(-50%, -50%);
+///   }
+@import './prefix';
+
+@mixin center-both-legacy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
