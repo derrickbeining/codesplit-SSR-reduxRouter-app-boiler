@@ -12,7 +12,7 @@
 ///     height: 42px;
 ///     margin-top: -21px;
 ///   }
-@mixin center-h($height) {
+@mixin vcenter($height) {
   position: absolute;
   top: 50%;
   height: $height;

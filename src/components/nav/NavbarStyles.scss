@@ -8,8 +8,31 @@
 @import '~styles/mixins/slide-out-to';
 @import '~styles/mixins/transform';
 @import '~styles/mixins/transition';
+@import '~styles/mixins/vcenter-h-unknown';
 @import '~styles/functions/z-index';
 @import '~styles/theme';
+@import '~sass-burger';
+
+.burgerIcon {
+  @include burger(2.5em, .4em, .3em, $eggshell, 1px);
+  margin: 1.5em;
+  z-index: z-index(navbar) + 1;;
+}
+
+.burgerWrapper {
+  @include align-items(center);
+  @include flexbox();
+  @include justify-content(flex-end);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: z-index(navbar) - 1;
+
+  &.active .burgerIcon {
+    @include burger-to-cross();
+  }
+}
+
 
 
 .navbar {
@@ -29,6 +52,7 @@
     color: $eggshell;
     height: 100%;
     text-decoration: none;
+    z-index: z-index(navbar) + 1;
 
     &:hover + .selectionIndicator {
       border-bottom: .5em solid rgb(80, 219, 126);
@@ -45,6 +69,8 @@
   z-index: z-index(navbar) - 1;
   height: 4em;
 }
+
+
 
 .activeNavLink {
   & + .selectionIndicator {
@@ -109,7 +135,12 @@
 
 .navViewLarge {
   @include custom-mquery(750px) {
-    display: block;
+    @include flexbox();
+    height: 4rem;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    width: 100%;
   }
   display: none;
 }
@@ -118,7 +149,9 @@
   @include custom-mquery(750px) {
     display: none;
   }
-  display: block;
+  @include flexbox();
+  justify-content: center;
+  width: 100%;
 }
 
 .hideNav {

@@ -14,7 +14,7 @@
 ///   }
 @import './prefix';
 
-@mixin vcenter-h-unkown {
+@mixin vcenter-h-unknown {
   position: relative;
   top: 50%;
   @include prefix(transform, translateY(-50%), 'webkit' 'ms');
