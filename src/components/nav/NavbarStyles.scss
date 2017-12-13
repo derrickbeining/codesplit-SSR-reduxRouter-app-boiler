@@ -1,14 +1,11 @@
-@import '~styles/mixins/animation';
 @import '~styles/mixins/box-sizing';
 @import '~styles/mixins/container-std';
 @import '~styles/mixins/flexbox';
-@import '~styles/mixins/keyframes';
 @import '~styles/mixins/media-queries';
 @import '~styles/mixins/slide-in-from';
 @import '~styles/mixins/slide-out-to';
 @import '~styles/mixins/transform';
 @import '~styles/mixins/transition';
-@import '~styles/mixins/vcenter-h-unknown';
 @import '~styles/functions/z-index';
 @import '~styles/theme';
 @import '~sass-burger';
@@ -38,6 +35,8 @@
 .navbar {
   align-items: center;
   background-color: $raisin;
+  box-shadow:  0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+
   color: $eggshell;
   height: 4rem;
   position: fixed;
@@ -88,7 +87,7 @@
   z-index: -1;
 }
 
-.navContainerInner {
+.navbarContainerInner {
   @include container-std();
   @include flexbox();
   height: 4rem;

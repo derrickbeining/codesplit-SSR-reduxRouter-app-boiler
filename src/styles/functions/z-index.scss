@@ -1,6 +1,7 @@
 $z-layers: (
   default: 0,
-  navbar: 1,
+  navDrawer: 1,
+  navbar: 2,
 );
 
 @function z-index($key) {

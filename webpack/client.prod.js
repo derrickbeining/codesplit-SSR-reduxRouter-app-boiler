@@ -50,7 +50,7 @@ module.exports = {
       'src',
       'node_modules'
     ],
-    extensions: ['.js', '.css']
+    extensions: ['.js', '.css', '.scss']
   },
   plugins: [
     new StatsPlugin('stats.json'),

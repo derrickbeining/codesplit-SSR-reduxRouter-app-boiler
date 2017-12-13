@@ -5,7 +5,7 @@ import CompactNav from './CompactNav'
 import FullNav from './FullNav'
 import {
   navbar,
-  navContainerInner,
+  navbarContainerInner,
   navbarSpacer,
   hideNav,
   showNav
@@ -19,7 +19,7 @@ const Navbar = ({ show }) => {
 
       <nav className={`${navbar} ${visibilityClass}`}>
 
-        <ul className={navContainerInner}>
+        <ul className={navbarContainerInner}>
           <CompactNav />
           <FullNav />
         </ul>

@@ -35,13 +35,20 @@ body {
   }
 }
 
-.app {
+.appContainer_0 {
   // display: -webkit-box;
   // display: -ms-flexbox;
   // display: flex;
   // flex: 1 0 auto;
   // flex-direction: column;
   height: 100%;
+  position: relative;
+}
+
+.appContainer_1 {
+  height: 100%;
+  overflow: auto; // margin of inner contents overflows and ruins layout w/out this
+  position: relative;
 }
 
 

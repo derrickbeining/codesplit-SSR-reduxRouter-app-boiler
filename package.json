@@ -5,6 +5,9 @@
   "main": "server/index.js",
   "author": "Derrick Beining <derrick.beining@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=8.9.3"
+  },
   "scripts": {
     "start": "npm run clean && cross-env NODE_ENV=development babel-watch server/index.js",
     "start:prod": "npm run build && npm run serve",
