@@ -12,7 +12,7 @@ export default () => (
     <Navbar />
     <div className={styles.appContainer_1}>
       <NavDrawer />
-      <NavDrawerMobile />
+      {/* <NavDrawerMobile /> */}
       <main>
         <Switcher />
       </main>

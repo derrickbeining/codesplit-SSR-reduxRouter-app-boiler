@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Link from 'redux-first-router-link'
-import { toggleNavDrawerMobile } from 'actions/navDrawerActions'
+import { toggleNavDrawer } from 'actions/navDrawerActions'
 import {
   active,
   burgerIcon,
@@ -10,7 +10,7 @@ import {
   navViewCompact
 } from './NavbarStyles'
 
-const CompactNav = ({ navDrawerOpen, toggleNavDrawerMobile }) => {
+const CompactNav = ({ navDrawerOpen, toggleNavDrawer }) => {
   const maybeActiveClass = navDrawerOpen ? active : ''
   return (
     <div className={navViewCompact}>
@@ -18,7 +18,7 @@ const CompactNav = ({ navDrawerOpen, toggleNavDrawerMobile }) => {
       <Link exact to='/'>BRAND</Link>
 
       <div className={`${burgerWrapper} ${maybeActiveClass}`}>
-        <div className={burgerIcon} onClick={toggleNavDrawerMobile} />
+        <div className={burgerIcon} onClick={toggleNavDrawer} />
       </div>
 
     </div>
@@ -26,4 +26,4 @@ const CompactNav = ({ navDrawerOpen, toggleNavDrawerMobile }) => {
 }
 
 const mapState = ({ navDrawerOpen }) => ({ navDrawerOpen })
-export default connect(mapState, { toggleNavDrawerMobile })(CompactNav)
+export default connect(mapState, { toggleNavDrawer })(CompactNav)

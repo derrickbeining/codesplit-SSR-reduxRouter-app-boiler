@@ -1,0 +1,23 @@
+@import './keyframes';
+@import './animation';
+@import '../functions/z-index';
+
+@mixin children-appear-first-to-last {
+  @include keyframes(appear) {
+    from {
+      opacity: 0;
+      position: absolute;
+      z-index: z-index(blackhole);
+    }
+    to {
+      opacity: 1;
+      position: static;
+      z-index: z-index(auto);
+    }
+  }
+  @for $idx from 0 to 25 {
+    & > :nth-child(#{$idx}) {
+      @include animation(appear '200ms ease-out #{$idx * 220}ms both');
+    }
+  }
+}

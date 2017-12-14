@@ -1,26 +1,50 @@
 @import '~styles/theme';
+@import '~styles/mixins/children-appear-last-to-first';
+@import '~styles/mixins/children-disappear-first-to-last';
 @import '~styles/mixins/flexbox';
 @import '~styles/mixins/media-queries';
 @import '~styles/mixins/position';
+@import '~styles/mixins/slide-out-to';
 @import '~styles/mixins/transition';
 @import '~styles/functions/z-index';
+
+// this element holds the same links displayed in the top navbar
+// and only displays them when the navbar goes into compact/mobile mode
+.navbarContentsHolder {
+  // @include transition(null, 500ms, all);
+  @include for-phone-only {
+    @include children-appear-last-to-first;
+  }
+
+  @include for-tablet-portrait-up {
+    @include children-disappear-first-to-last;
+  }
+}
 
 .navDrawer {
   background: $onyx;
   box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.3);
+  color: $eggshell;
   height: 100%;
   overflow: scroll;
+  width: 90%;
   z-index: z-index(navDrawer);
   @include position(absolute, 0, -100%); //starts hidden
-  @include transition(750ms);
-
+  @include transition(null, 750ms, all);
+  @include for-tablet-portrait-up {
+    width: 75%;
+  }
+  @include for-tablet-landscape-up {
+    @include position(absolute, 0, -60%);
+    width: 50%;
+  }
 
   &.active {
     right: 0;
   }
 
-
 }
+
 .navDrawerFull {
   @include for-phone-only {
     display: none;
@@ -41,16 +65,18 @@
   }
 }
 
-
-
 .navDrawerContainer {
-  @include flexbox;
-  @include flex-direction(column);
-  @include justify-content(space-evenly);
+  // @include flexbox;
+  // @include flex-direction(column);
+  // @include justify-content(space-evenly);
+  @include transition(null, 500ms, all);
+  transition-delay: 500ms;
   list-style: none;
   padding: 0;
+
 }
 
 .navDrawerItem {
   border-bottom: 1px solid $raisin;
+  padding: .75em .75em .75em 1.5em;
 }

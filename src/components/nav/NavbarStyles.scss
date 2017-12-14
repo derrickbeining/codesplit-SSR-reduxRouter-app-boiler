@@ -1,6 +1,8 @@
 @import '~styles/mixins/box-sizing';
+@import '~styles/mixins/children-appear-first-to-last';
 @import '~styles/mixins/container-std';
 @import '~styles/mixins/flexbox';
+@import '~styles/mixins/hide';
 @import '~styles/mixins/media-queries';
 @import '~styles/mixins/slide-in-from';
 @import '~styles/mixins/slide-out-to';
@@ -78,7 +80,7 @@
 }
 
 .selectionIndicator {
-  @include transition(50ms);
+  @include transition(null, 50ms, all);
   border-bottom: 0 solid rgb(80, 219, 126);
   bottom: 0;
   position: absolute;
@@ -133,15 +135,23 @@
 }
 
 .navViewLarge {
-  @include for-tablet-portrait-up {
-    @include flexbox();
-    height: 4rem;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0;
-    width: 100%;
+  // @include transition(transform);
+  @include for-phone-only {
+    display: none;
+    // @include slide-out-to(x, 100%, '1s forwards ease');
+    // @include hide(0ms 1s forwards ease-out);
   }
-  display: none;
+  @include flexbox();
+  height: 4rem;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+
+  & > * {
+    @include children-appear-first-to-last;
+
+  }
 }
 
 .navViewCompact {

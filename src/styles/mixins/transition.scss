@@ -3,7 +3,7 @@
 /// @param {String} $timing-function [ease-in-out] - Timing function or cubic bezier curve
 /// @example scss - Usage
 ///   .foo {
-///     @include transition(0.3s, ease-in);
+///     @include transition(all, 0.3s, ease-in);
 ///   }
 /// @example css - Result
 ///   .foo {
@@ -12,6 +12,6 @@
 ///   }
 @import './prefix';
 
-@mixin transition($time: 1s, $timing-function: ease-in-out) {
-  @include prefix(transition, all $time $timing-function, 'webkit moz ms');
+@mixin transition($delay: 0ms, $duration: .5s, $prop: all, $time-fn: ease) {
+  @include prefix(transition, $delay $duration $prop $time-fn, 'webkit moz ms');
 }

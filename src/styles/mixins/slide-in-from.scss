@@ -39,19 +39,18 @@
 @mixin slide-in-from($slide-axis: x, $slide-offset: -100px, $animation-properties: 3s ease) {
   $slide-start: if($slide-axis == x, translateX($slide-offset), translateY($slide-offset));
   $slide-end: if($slide-axis == x, translateX(0), translateY(0));
+  // gotta do this str-slice to prevent an invalid % char from getting into the string
+  $name: slide-in-#{$slide-axis}-#{str-slice(#{$slide-offset}, 0, str-length(#{$slide-offset}) - 1)};
 
-  @include keyframes(slide-in-#{$slide-axis}-#{$slide-offset}){
-    0% {
-      @include opacity(0);
+  @include keyframes($name){
+    from {
+
       @include transform($slide-start);
     }
-    99% {
+    to {
       @include transform($slide-end);
     }
-    100% {
-      @include opacity(1);
-    }
   }
-  @include animation(slide-in-#{$slide-axis}-#{$slide-offset} #{$animation-properties})
+  @include animation($name $animation-properties)
   // @include prefix(animation, slide-in-#{$slide-axis}-#{$slide-offset} $animation-properties, 'webkit');
 }
