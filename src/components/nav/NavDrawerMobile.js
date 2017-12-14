@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import {
   active,
   navDrawer,
-  navDrawerFull,
+  navDrawerMobile,
   navDrawerContainer,
   navDrawerItem
 } from './NavDrawerStyles'
 
-const NavDrawer = ({ navDrawerOpen }) => {
-  const maybeActiveClass = navDrawerOpen ? active : active
+const NavDrawerMobile = ({ navDrawerMobileOpen }) => {
+  const maybeActiveClass = navDrawerMobileOpen ? active : ''
   return (
-    <nav className={`${navDrawer} ${navDrawerFull} ${maybeActiveClass}`}>
+    <nav className={`${navDrawer} ${navDrawerMobile} ${maybeActiveClass}`}>
       <ul className={navDrawerContainer}>
         <li className={navDrawerItem}>
           Item 1
@@ -186,5 +186,5 @@ const NavDrawer = ({ navDrawerOpen }) => {
   )
 }
 
-const mapState = ({ navDrawerOpen }) => ({ navDrawerOpen })
-export default connect(mapState)(NavDrawer)
+const mapState = ({ navDrawerMobileOpen }) => ({ navDrawerMobileOpen })
+export default connect(mapState)(NavDrawerMobile)

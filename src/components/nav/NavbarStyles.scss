@@ -133,7 +133,7 @@
 }
 
 .navViewLarge {
-  @include custom-mquery(750px) {
+  @include for-tablet-portrait-up {
     @include flexbox();
     height: 4rem;
     justify-content: space-between;
@@ -145,7 +145,7 @@
 }
 
 .navViewCompact {
-  @include custom-mquery(750px) {
+  @include for-tablet-portrait-up {
     display: none;
   }
   @include flexbox();

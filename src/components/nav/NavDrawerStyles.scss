@@ -8,21 +8,40 @@
 .navDrawer {
   background: $onyx;
   box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.3);
-  height: 100vh;
+  height: 100%;
   overflow: scroll;
-  width: 75%;
   z-index: z-index(navDrawer);
-  @include position(absolute, 0, -75%);
-  @include transition(1s);
-  @include for-tablet-landscape-up {
-    @include position(absolute, 0, -50%);
-    width: 50%;
-  }
+  @include position(absolute, 0, -100%); //starts hidden
+  @include transition(750ms);
+
 
   &.active {
     right: 0;
   }
+
+
 }
+.navDrawerFull {
+  @include for-phone-only {
+    display: none;
+  }
+  @include for-tablet-portrait-up {
+    width: 75%;
+  }
+  @include for-tablet-landscape-up {
+    @include position(absolute, 0, -60%);
+    width: 50%;
+  }
+}
+
+.navDrawerMobile {
+  width: 90%;
+  @include for-tablet-portrait-up {
+    display: none;
+  }
+}
+
+
 
 .navDrawerContainer {
   @include flexbox;
