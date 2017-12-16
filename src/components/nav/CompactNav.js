@@ -17,8 +17,11 @@ const CompactNav = ({ navDrawerOpen, toggleNavDrawer }) => {
 
       <Link exact to='/'>BRAND</Link>
 
-      <div className={`${burgerWrapper} ${maybeActiveClass}`}>
-        <div className={burgerIcon} onClick={toggleNavDrawer} />
+      <div
+        className={`${burgerWrapper} ${maybeActiveClass}`}
+        onClick={toggleNavDrawer}
+      >
+        <div className={burgerIcon} />
       </div>
 
     </div>

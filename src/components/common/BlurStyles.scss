@@ -1,0 +1,25 @@
+@import '~styles/mixins/filter';
+@import '~styles/mixins/transform';
+@import '~styles/mixins/transition';
+
+.blur {
+  height: 100%;
+  overflow-y: auto;
+  @include transition((
+    250ms 0s filter ease-in-out,
+    250ms 0s background ease-in-out));
+
+  & * {
+    @include transition(250ms 0s transform ease-in-out);
+  }
+
+  &.isActive {
+    background: rgba(0, 0, 0, .2);
+    @include filter(blur(3px));
+
+    & * {
+      @include transform(scale(.99));
+
+    }
+  }
+}

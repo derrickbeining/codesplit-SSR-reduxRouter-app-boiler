@@ -2,7 +2,7 @@
 @import './animation';
 @import '../functions/z-index';
 
-@mixin children-disappear-last-to-first {
+@mixin children-disappear-first-to-last {
   @include keyframes(disappear) {
     from {
       opacity: 1;
@@ -13,9 +13,9 @@
       z-index: z-index(blackhole);
     }
   }
-  @for $idx from 0 to 25 {
-    & :nth-last-child(#{$idx}) {
-      @include animation(disappear '200ms ease-out #{$idx * 220}ms forwards');
+  @for $idx from 1 to 25 {
+    & :nth-child(#{$idx}) {
+      @include animation(disappear '200ms ease-out #{($idx - 1) * 220}ms forwards');
     }
   }
 }

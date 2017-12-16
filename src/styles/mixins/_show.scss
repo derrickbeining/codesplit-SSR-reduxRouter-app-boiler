@@ -1,0 +1,22 @@
+@import './animation';
+@import './keyframes';
+@import '../functions/z-index';
+
+@mixin show($animation-props: 500ms 0s forwards ease-out) {
+  @include animation(show $animation-props);
+  @include keyframes(show) {
+    from {
+      // opacity: 0;
+      // position: absolute;
+      // width: 100%;
+      // z-index: z-index(blackhole);
+      display: none;
+    }
+
+    to {
+      // opacity: 1;
+      // position: relative;
+      // z-index: auto;
+    }
+  }
+}

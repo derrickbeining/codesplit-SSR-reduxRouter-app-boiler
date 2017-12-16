@@ -1,0 +1,4 @@
+@import './prefix';
+@mixin filter($filter-fns) {
+  @include prefix(filter, $filter-fns, 'webkit')
+}

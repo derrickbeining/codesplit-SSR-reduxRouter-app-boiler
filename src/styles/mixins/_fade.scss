@@ -26,9 +26,10 @@
 @import './keyframes';
 @import './opacity';
 @import './prefix';
+@import '../functions/_str-replace';
 
 @mixin fade($fade-from: 0, $fade-to: 1, $animation-properties: 1s ease) {
-  $alias: fade- + str-replace($fade-from + '', '.', '-') + '-' + str-replace($fade-to + '', '.', '-');
+  $alias: fade- + (str-replace($fade-from + '', '.', '-') + '-' + str-replace($fade-to + '', '.', '-'));
   @include keyframes($alias){
   from {
     @include opacity($fade-from);
