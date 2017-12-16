@@ -25,7 +25,7 @@ const Navbar = ({ show }) => {
         </ul>
       </nav>
 
-      {/* <div className={navbarSpacer} /> */}
+      <div className={navbarSpacer} />
 
     </div>
   )

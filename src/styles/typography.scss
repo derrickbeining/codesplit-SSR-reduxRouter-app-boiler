@@ -2,6 +2,8 @@
 @import './mixins/font-size';
 @import './mixins/line-height';
 
+$sans-serif-fonts: 'Merriweather Sans', Tahoma, sans-serif;
+$serif-fonts: 'Lora', serif;
 
 html{
   line-height: 1.68;
@@ -24,16 +26,16 @@ html{
 }
 
 body {
-  font-family: 'Merriweather Sans';
+  font-family: $sans-serif-fonts;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Merriweather Sans';
+  font-family: $sans-serif-fonts;
   margin: 1em 0 .5em 0;
 }
 
 p {
-  font-family: 'Lora';
+  font-family: $serif-fonts;
   line-height: 2;
   margin: 1em 0 .5em 0;
 }

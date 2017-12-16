@@ -6,14 +6,14 @@
 
 html {
   background-color: palegoldenrod;
-  height: 100%;
+  // height: 100%;
   margin: 0;
   z-index: z-index(default) - 1;
 }
 
 body {
 
-  height: 100%;
+  // height: 100%;
   margin: 0;
   @include box-sizing(border-box);
   & * {
@@ -44,21 +44,21 @@ body {
   // display: flex;
   // flex: 1 0 auto;
   // flex-direction: column;
-  height: 100%;
+  // height: 100%;
   overflow-x: hidden;
   position: relative;
 }
 
 .appContainer_1 {
-  height: 100%;
+  // height: 100%;
   overflow: auto; // margin of inner contents overflows and ruins layout w/out this
   overflow-x: hidden;
-  padding-top: 4em;
+
   position: relative;
 }
 
 .appContainer_2 {
-  height: 100%;
+  // height: 100%;
 }
 
 

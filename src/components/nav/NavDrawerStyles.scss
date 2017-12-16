@@ -33,6 +33,7 @@
 .closeDrawerButtonPositioner {
   background: $onyx;
   border-radius: 50%;
+  cursor: pointer;
   height: 3.5em;
   width: 3.5em;
   @include flexbox;
