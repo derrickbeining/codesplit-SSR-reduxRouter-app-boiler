@@ -1,5 +1,8 @@
 @import '~styles/mixins/container-std';
-
+@import '~styles/mixins/position';
 .page {
   // @include container-std();
+  // @include position(absolute, 0, null, null, 0);
+  // height: 100%;
+  // width: 100%;
 }

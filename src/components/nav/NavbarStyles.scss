@@ -58,11 +58,11 @@
     z-index: z-index(navbar) + 1;
 
     &:hover + .selectionIndicator {
-      border-bottom: .5em solid rgb(80, 219, 126);
+      border-bottom: .5em solid $accent1;
     }
 
     &:active + .selectionIndicator {
-      border-bottom: 1em solid rgb(80, 219, 126);
+      border-bottom: 1em solid $accent1;
     }
   }
 }
@@ -77,7 +77,7 @@
 
 .activeNavLink {
   & + .selectionIndicator {
-    border-bottom: .5em solid rgb(80, 219, 126);
+    border-bottom: .5em solid $accent1;
   }
 }
 
@@ -161,8 +161,8 @@
 }
 
 .hideNav {
-  @include slide-out-to(y, -4em, 500ms ease);
-  @include transform(translateY(-4em));
+  @include slide-out-to(y, -4em, 500ms ease forwards);
+  // @include transform(translateY(-4em));
 }
 
 .showNav {

@@ -1,19 +1,20 @@
 @import '~styles/fonts';
 @import '~styles/typography';
+@import '~styles/theme';
 @import '~styles/mixins/box-sizing';
 @import '~styles/mixins/media-queries';
 @import '~styles/functions/z-index';
 
 html {
-  background-color: palegoldenrod;
-  // height: 100%;
+  background-color: $eggshell;
+  height: 100%;
   margin: 0;
   z-index: z-index(default) - 1;
 }
 
 body {
 
-  // height: 100%;
+  height: 100%;
   margin: 0;
   @include box-sizing(border-box);
   & * {
@@ -44,13 +45,13 @@ body {
   // display: flex;
   // flex: 1 0 auto;
   // flex-direction: column;
-  // height: 100%;
+  height: 100%;
   overflow-x: hidden;
   position: relative;
 }
 
 .appContainer_1 {
-  // height: 100%;
+  height: 100%;
   overflow: auto; // margin of inner contents overflows and ruins layout w/out this
   overflow-x: hidden;
 
@@ -58,7 +59,7 @@ body {
 }
 
 .appContainer_2 {
-  // height: 100%;
+  height: 100%;
 }
 
 

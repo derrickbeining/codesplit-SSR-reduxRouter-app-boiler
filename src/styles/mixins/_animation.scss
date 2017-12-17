@@ -13,9 +13,9 @@
 @import './prefix';
 @import './accelerate';
 
-@mixin animation($str) {
+@mixin animation($props) {
   @include accelerate();
-  // @include prefix(visibility, hidden, 'webkit moz ms');
-  // @include prefix(perspective, 1000, 'webkit moz ms');
-  @include prefix(animation, #{$str}, 'webkit moz ms o');
+  @include prefix(backface-visibility, hidden, webkit moz ms);
+  @include prefix(perspective, 1000, webkit moz ms);
+  @include prefix(animation, #{$props}, webkit moz ms o);
 }

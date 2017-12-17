@@ -1,20 +1,31 @@
 import { redirect, NOT_FOUND } from 'redux-first-router'
 import { fetchData } from './utils'
+import {
+  HOME_PAGE,
+  LOGIN_PAGE,
+  SIGNUP_PAGE,
+  ABOUT_PAGE,
+  FEATURES_PAGE,
+  SUPPORT_PAGE,
+  BLOG_PAGE
+} from 'actions/routerActions'
+
+// the keys on the routesMap must match the keys on the `page` reducer
 
 export default {
-  HOMEPAGE: '/',
-  LOGINPAGE: '/login',
-  SIGNUPPAGE: '/signup',
-  ABOUTPAGE: {
+  [HOME_PAGE]: '/',
+  [LOGIN_PAGE]: '/login',
+  [SIGNUP_PAGE]: '/signup',
+  [ABOUT_PAGE]: {
     path: '/about'
   },
-  FEATURESPAGE: {
+  [FEATURES_PAGE]: {
     path: '/features'
   },
-  SUPPORTPAGE: {
+  [SUPPORT_PAGE]: {
     path: '/support'
   },
-  BLOGPAGE: {
+  [BLOG_PAGE]: {
     path: '/blog'
   }
 

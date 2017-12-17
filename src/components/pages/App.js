@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Navbar from 'components/nav/Navbar'
 import NavDrawer from 'components/nav/NavDrawer'
 import Blur from 'components/common/Blur'
-import NavDrawerMobile from 'components/nav/NavDrawerMobile'
 import Sidebar from 'components/Sidebar'
 import Switcher from 'components/Switcher'
 import styles from './AppStyles'
@@ -17,7 +16,6 @@ export default () => (
     <Navbar />
     <div className={styles.appContainer_1}>
       <NavDrawer />
-      {/* <NavDrawerMobile /> */}
       <main className={styles.appContainer_2}>
         <BlurOnNavDrawerOpen>
           <Switcher />

@@ -14,5 +14,5 @@
 // $delay: 0ms, $duration: .5s, $prop: all, $time-fn: ease
 // $delay $duration $prop $time-fn
 @mixin transition($values) {
-  @include prefix(transition, $values, 'webkit moz ms');
+  @include prefix(transition, $values, webkit moz ms);
 }

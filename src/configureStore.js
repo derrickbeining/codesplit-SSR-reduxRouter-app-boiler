@@ -8,7 +8,9 @@ import * as reducers from './reducers'
 import * as actionCreators from './actions'
 
 export default (history, preLoadedState) => {
-  const { reducer, middleware, enhancer, thunk } = connectRoutes(
+  const {
+ reducer, middleware, enhancer, thunk 
+} = connectRoutes(
     history,
     routesMap,
     options

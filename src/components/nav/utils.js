@@ -23,9 +23,9 @@ const reduceToGroups = list => {
   }, {})
 }
 
-const renderItem = ({ path, content }) => (
-  <li key={path} className={navItem}>
-    <NavLink activeClassName={activeNavLink} exact to={path}>
+const renderItem = ({ actionType, content }) => (
+  <li key={actionType} className={navItem}>
+    <NavLink activeClassName={activeNavLink} exact to={{ type: actionType }}>
       {content}
     </NavLink>
     <div className={selectionIndicator} />

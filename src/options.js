@@ -1,4 +1,5 @@
 import { redirect } from 'redux-first-router'
+import { toggleNavDrawer } from 'actions/navDrawerActions'
 import { isAllowed, isServer } from './utils'
 
 export default {
@@ -7,7 +8,12 @@ export default {
 
     if (!allowed) {
       const action = redirect({ type: 'LOGIN' })
-      dispatch(action)
+      return dispatch(action)
+    }
+
+    // any time we navigate to a new page, close the navDrawer
+    if (getState().navDrawerOpen) {
+      dispatch(toggleNavDrawer())
     }
   },
   onAfterChange: (dispatch, getState) => {

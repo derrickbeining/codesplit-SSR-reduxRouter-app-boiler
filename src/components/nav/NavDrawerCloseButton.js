@@ -1,16 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { toggleNavDrawer } from 'actions/navDrawerActions'
 import {
   closeDrawerButton,
   closeDrawerButtonContainer,
   closeDrawerButtonPositioner
 } from './NavDrawerStyles'
 
-export default ({ onClick }) => {
+
+const NavDrawerCloseButton = ({ onClick, toggleNavDrawer }) => {
   return (
     <div className={closeDrawerButtonContainer}>
-      <div className={closeDrawerButtonPositioner} onClick={onClick}>
+      <div className={closeDrawerButtonPositioner} onClick={toggleNavDrawer}>
         <div className={closeDrawerButton} />
       </div>
     </div>
   )
 }
+
+export default connect(null, { toggleNavDrawer })(NavDrawerCloseButton)

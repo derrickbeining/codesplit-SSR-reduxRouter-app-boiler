@@ -6,11 +6,11 @@
   height: 100%;
   overflow-y: auto;
   @include transition((
-    250ms 0s filter ease-in-out,
-    250ms 0s background ease-in-out));
+    250ms 0ms filter ease-in-out,
+    250ms 0ms background ease-in-out));
 
   & * {
-    @include transition(250ms 0s transform ease-in-out);
+    @include transition(250ms 0ms transform ease-in-out);
   }
 
   &.isActive {

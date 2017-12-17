@@ -120,26 +120,49 @@
 
 /** NEXT TRANSITION **/
 
+// :global(.next) :global(.fade-appear) {
+//   // transform: translateX(100%);
+//   opacity: 0;
+//   visibility: hidden;
+//   position: fixed;
+//   height: 0;
+// }
+
+// :global(.next) :global(.fade-appear-active) {
+//   // transform: translateX(0%);
+//   // opacity: 1;
+//   // transition: all 500ms;
+//   opacity: 0;
+//   visibility: hidden;
+//   position: fixed;
+//   height: 0;
+// }
+
 :global(.next) :global(.fade-enter) {
-  transform: translateX(100%);
+  // transform: translateX(100%);
   opacity: 0;
+  // visibility: hidden;
+  position: fixed;
+  width: 100%;
+  height: 0;
 }
 
 :global(.next) :global(.fade-enter-active) {
-  transform: translateX(0%);
+  // transform: translateX(0%);
   opacity: 1;
-  transition: all 500ms;
+  // visibility: visible;
+  transition: all 500ms ease-in;
 }
 
 :global(.next) :global(.fade-leave) {
-  transform: translateX(0%);
+  // transform: translateX(0%);
   opacity: 1;
 }
 
 :global(.next) :global(.fade-leave-active) {
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
   opacity: 0;
-  transition: all 500ms;
+  transition: all 500ms ease-out;
 }
 
 
@@ -147,23 +170,24 @@
 /** BACK TRANSITION **/
 
 :global(.back) :global(.fade-enter) {
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
+  height: 0;
   opacity: 0;
 }
 
 :global(.back) :global(.fade-enter-active) {
-  transform: translateX(0%);
+  // transform: translateX(0%);
   opacity: 1;
   transition: all 500ms;
 }
 
 :global(.back) :global(.fade-leave) {
-  transform: translateX(0%);
+  // transform: translateX(0%);
   opacity: 1;
 }
 
 :global(.back) :global(.fade-leave-active) {
-  transform: translateX(100%);
+  // transform: translateX(100%);
   opacity: 0;
   transition: all 500ms;
 }

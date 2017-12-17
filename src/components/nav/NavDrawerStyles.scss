@@ -31,7 +31,7 @@
 }
 
 .closeDrawerButtonPositioner {
-  background: $onyx;
+  background: $accent1;
   border-radius: 50%;
   cursor: pointer;
   height: 3.5em;
@@ -128,6 +128,54 @@
 }
 
 .navDrawerItem {
-  border-bottom: 1px solid $raisin;
-  padding: .75em .75em .75em 1.5em;
+
+  & > a {
+    @include align-items(center);
+    @include flexbox;
+    @include flex-direction(row);
+    border-bottom: 1px solid $raisin;
+    color: $eggshell;
+    height: 4em;
+    margin: 0 1em;
+    padding-left: 1em;
+    position: relative;
+    text-decoration: none;
+    // padding: .75em .75em .75em 1.5em;
+
+    &:hover {
+      &::before {
+        border-left: 1em solid $accent1;
+        border-radius: 1px;
+        height: 4em;
+        position: absolute;
+        left: -1em;
+        top: 0;
+        width: 0px;
+        content: ' ';
+      }
+    }
+
+    &:active {
+      background-color: $accent1;
+      border-bottom-color: $accent1;
+      margin-right: 0;
+    }
+
+  }
+      .activeNavLink {
+        background-color: $primary1;
+        border-bottom-color: $primary1;
+        margin-right: 0;
+        &::before {
+          border-left: 1em solid $primary1;
+          border-radius: 1px;
+          height: 4em;
+          position: absolute;
+          left: -1em;
+          top: 0;
+          width: 0px;
+          content: ' ';
+        }
+      }
+
 }

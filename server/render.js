@@ -30,7 +30,7 @@ export default ({ clientStats }) => async (req, res, next) => {
         </head>
         <body>
           <script>window.REDUX_STATE = ${serializedStore}</script>
-          <div id="root">${appString}</div>
+          <div id="root" style="height:100%">${appString}</div>
           ${cssHash}
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}

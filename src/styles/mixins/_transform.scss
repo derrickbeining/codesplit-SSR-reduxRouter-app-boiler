@@ -16,5 +16,5 @@
 
 @mixin transform($transformation){
   @include accelerate();
-  @include prefix(transform, $transformation, 'webkit' 'ms');
+  @include prefix(transform, $transformation, webkit ms);
 }

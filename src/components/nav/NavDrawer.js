@@ -1,24 +1,34 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'redux-first-router-link'
 import { toggleNavDrawer } from 'actions/navDrawerActions'
+import NavbarSpacer from './NavbarSpacer'
 import NavDrawerCloseButton from './NavDrawerCloseButton'
 import {
   active,
+  activeNavLink,
   navbarContentsHolder,
   navDrawer,
   navDrawerContainer,
   navDrawerItem
 } from './NavDrawerStyles'
 
-const NavDrawer = ({ navDrawerOpen, fullNavbar, toggleNavDrawer }) => {
+// for anything that needs to target the navDrawer, e.g. toggleNavDrawer action
+
+const NavDrawer = ({ navDrawerOpen, fullNavbar, toggleDrawer }) => {
   const maybeActiveClass = navDrawerOpen ? active : ''
   return (
-    <nav className={`${navDrawer} ${maybeActiveClass}`}>
-      <NavDrawerCloseButton onClick={toggleNavDrawer} />
+    <nav id='navDrawer' className={`${navDrawer} ${maybeActiveClass}`}>
+      <NavDrawerCloseButton onClick={toggleDrawer} />
+      <NavbarSpacer />
       <ul className={navDrawerContainer}>
         <ul className={`${navDrawerContainer} ${navbarContentsHolder}`}>
           {fullNavbar.map(item => (
-            <li key={item.path} className={navDrawerItem}>{item.content}</li>
+            <li key={item.actionType} className={navDrawerItem}>
+              <NavLink exact to={{ type: item.actionType }} activeClassName={activeNavLink}>
+                {item.content}
+              </NavLink>
+            </li>
         ))}
         </ul>
         <li className={navDrawerItem}>
@@ -195,4 +205,4 @@ const NavDrawer = ({ navDrawerOpen, fullNavbar, toggleNavDrawer }) => {
 }
 
 const mapState = ({ navDrawerOpen, fullNavbar }) => ({ navDrawerOpen, fullNavbar })
-export default connect(mapState, { toggleNavDrawer })(NavDrawer)
+export default connect(mapState, { toggleDrawer: toggleNavDrawer })(NavDrawer)
