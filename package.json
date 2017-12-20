@@ -17,11 +17,32 @@
     "build:server": "rimraf buildServer && cross-env NODE_ENV=production webpack --progress -p --config webpack/server.prod.js",
     "build:node": "cross-env NODE_ENV=production babel server -d buildServer --ignore configureStore,render",
     "clean": "rimraf buildClient buildServer",
-    "precommit": "lint-staged",
+    "(remove this when ready)precommit": "lint-staged",
     "cm": "git-cz",
     "lint": "eslint --fix src server webpack",
     "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint"
   },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-2"
+    ],
+    "plugins": [
+      "universal-import"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          "react-hot-loader/babel"
+        ]
+      }
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "ie > 9"
+  ],
   "dependencies": {
     "angled-edges": "^2.0.0",
     "babel-polyfill": "^6.23.0",
@@ -34,6 +55,7 @@
     "react-dom": "^16.2.0",
     "react-event-listener": "^0.5.2",
     "react-redux": "^5.0.5",
+    "react-redux-form": "^1.16.3",
     "react-universal-component": "2.8.0",
     "redux": "^3.7.0",
     "redux-devtools-extension": "^2.13.2",
@@ -44,10 +66,12 @@
     "serialize-javascript": "^1.4.0",
     "spinthatshit": "^1.0.4",
     "transition-group": "^0.0.2",
-    "webpack-flush-chunks": "^1.1.22"
+    "webpack-flush-chunks": "^1.1.22",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "autodll-webpack-plugin": "^0.3.2",
+    "autoprefixer": "^7.2.3",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-eslint": "^8.0.1",
@@ -75,6 +99,7 @@
     "jest": "^21.2.1",
     "lint-staged": "^4.2.3",
     "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
     "prettier": "^1.4.4",
     "react-hot-loader": "^3.0.0",
     "rimraf": "^2.6.1",

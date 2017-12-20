@@ -9,7 +9,7 @@
     250ms 0ms filter ease-in-out,
     250ms 0ms background ease-in-out));
 
-  & * {
+  & > * {
     @include transition(250ms 0ms transform ease-in-out);
   }
 
@@ -17,7 +17,7 @@
     background: rgba(0, 0, 0, .2);
     @include filter(blur(3px));
 
-    & * {
+    & > * {
       @include transform(scale(.99));
 
     }

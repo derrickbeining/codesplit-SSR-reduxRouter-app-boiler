@@ -1,0 +1,17 @@
+@import '~styles/theme';
+@import '~styles/mixins/flexbox';
+@import '~styles/mixins/transition';
+@import '~styles/mixins/transform';
+@import '~styles/mixins/shadow-by-depth';
+@import '~styles/functions/z-index';
+
+form {
+  @include flexbox;
+  @include justify-content(space-around);
+  @include flex-wrap(wrap);
+  & > * {
+    margin: .5em;
+    width: 100%;
+  }
+}
+

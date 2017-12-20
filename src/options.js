@@ -1,13 +1,15 @@
 import { redirect } from 'redux-first-router'
+import getPageTitle from 'selectors/getPageTitle'
 import { toggleNavDrawer } from 'actions/navDrawerActions'
 import { isAllowed, isServer } from './utils'
 
 export default {
+  title: getPageTitle,
   onBeforeChange: (dispatch, getState, action) => {
     const allowed = isAllowed(action.type, getState())
 
     if (!allowed) {
-      const action = redirect({ type: 'LOGIN' })
+      const action = redirect({ type: 'LOGIN_PAGE' })
       return dispatch(action)
     }
 
@@ -16,6 +18,7 @@ export default {
       dispatch(toggleNavDrawer())
     }
   },
+
   onAfterChange: (dispatch, getState) => {
     const { type } = getState().location
 

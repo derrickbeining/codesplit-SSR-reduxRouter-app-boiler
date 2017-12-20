@@ -55,6 +55,7 @@ const DEFAULT = [
 
 export default (state = DEFAULT, action) => {
   switch (action.type) {
-    default: return state
+    default:
+      return state
   }
 }

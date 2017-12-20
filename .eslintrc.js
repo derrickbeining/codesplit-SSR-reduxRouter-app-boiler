@@ -53,6 +53,7 @@ module.exports = {
         scss: 'never',
       }
     ],
+    'object-curly-newline': 0,
     'arrow-body-style': [0, 'as-needed'],
     'no-shadow': 0,
     'no-use-before-define': 0,
@@ -113,7 +114,7 @@ module.exports = {
     'max-len': [
       'error',
       {
-        code: 80,
+        code: 90,
         tabWidth: 2,
         ignoreUrls: true,
         ignoreComments: true,

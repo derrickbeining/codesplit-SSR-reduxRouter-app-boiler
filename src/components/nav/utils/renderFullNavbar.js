@@ -7,7 +7,7 @@ import {
   navItemGroupMiddle,
   navItemGroupRight,
   selectionIndicator
-} from './NavbarStyles'
+} from 'components/nav/NavbarStyles'
 
 const styleByGroup = {
   left: navItemGroupLeft,
@@ -34,7 +34,8 @@ const renderItem = ({ actionType, content }) => (
 const renderGroup = (name, contents) => (
   <div key={name} className={styleByGroup[name]}>
     {contents.map(renderItem)}
-  </div>)
+  </div>
+)
 
 export const renderFullNavbar = contents => {
   const groupedContents = reduceToGroups(contents)

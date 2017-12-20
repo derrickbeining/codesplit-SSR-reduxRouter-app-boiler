@@ -15,18 +15,20 @@
 
 .burgerIcon {
   @include burger(2.5em, .4em, .3em, $eggshell, 1px);
-  margin: 1.5em;
+
   z-index: z-index(navbar) + 1;;
 }
 
 .burgerWrapper {
   @include align-items(center);
   @include flexbox();
-  @include justify-content(flex-end);
+  @include justify-content(center);
   cursor: pointer;
   height: 100%;
   position: absolute;
-  width: 100%;
+  right: 0;
+  top: 0;
+  width: 15%;
   z-index: z-index(navbar) - 1;
 
   &.active .burgerIcon {
@@ -64,11 +66,12 @@
     &:active + .selectionIndicator {
       border-bottom: 1em solid $accent1;
     }
+
   }
 }
 
 .navbarSpacer {
-  padding: 1em .5em;
+  // padding: 1em .5em;
   z-index: z-index(navbar) - 1;
   height: 4em;
 }

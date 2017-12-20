@@ -1,7 +1,8 @@
 import React from 'react'
+import SignupForm from 'components/forms/SignupForm'
 
 const SignupPage = props => (
-  <h1>Sign Up</h1>
+  <SignupForm />
 )
 
 export default SignupPage

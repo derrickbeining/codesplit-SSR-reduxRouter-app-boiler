@@ -9,16 +9,13 @@ import Err from './Error'
 import isLoading from '../selectors/isLoading'
 import styles from './SwitcherStyles'
 
-const UniversalComponent = universal(
-  ({ page }) => import(`./pages/${page}`),
-  {
-    alwaysDelay: true,
-    minDelay: 2000,
-    loadingTransition: true,
-    loading: Loading,
-    error: Err
-  }
-)
+const UniversalComponent = universal(({ page }) => import(`./pages/${page}`), {
+  alwaysDelay: true,
+  minDelay: 2000,
+  loadingTransition: true,
+  loading: Loading,
+  error: Err
+})
 
 const Switcher = ({
   page, direction, isLoading, toggleNavDrawer
@@ -38,13 +35,11 @@ const Switcher = ({
   >
     <Transition key={page}>
       <Page>
-        <UniversalComponent
-          page={page}
-          isLoading={isLoading}
-        />
+        <UniversalComponent page={page} isLoading={isLoading} />
       </Page>
     </Transition>
-  </TransitionGroup>)
+  </TransitionGroup>
+)
 
 const mapState = ({ page, direction, ...state }) => ({
   page,

@@ -11,7 +11,6 @@ const mapState = ({ navDrawerOpen }) => ({ active: navDrawerOpen })
 const BlurOnNavDrawerOpen = connect(mapState)(Blur)
 
 export default () => (
-
   <div className={styles.appContainer_0}>
     <Navbar />
     <div className={styles.appContainer_1}>
@@ -20,7 +19,7 @@ export default () => (
         <BlurOnNavDrawerOpen>
           <Switcher />
         </BlurOnNavDrawerOpen>
-
       </main>
     </div>
-  </div>)
+  </div>
+)

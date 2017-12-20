@@ -34,3 +34,4 @@ const doesRedirect = ({ kind, pathname }, res) => {
     return true
   }
 }
+

@@ -7,8 +7,7 @@ import {
   closeDrawerButtonPositioner
 } from './NavDrawerStyles'
 
-
-const NavDrawerCloseButton = ({ onClick, toggleNavDrawer }) => {
+const NavDrawerCloseButton = ({ toggleNavDrawer }) => {
   return (
     <div className={closeDrawerButtonContainer}>
       <div className={closeDrawerButtonPositioner} onClick={toggleNavDrawer}>

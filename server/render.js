@@ -5,6 +5,7 @@ import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
 import serialize from 'serialize-javascript'
 import App from 'components/pages/App'
+import getPageTitle from 'selectors/getPageTitle'
 import configureStore from './configureStore'
 
 export default ({ clientStats }) => async (req, res, next) => {
@@ -13,23 +14,25 @@ export default ({ clientStats }) => async (req, res, next) => {
 
   const app = createApp(App, store)
   const appString = ReactDOM.renderToString(app)
-  const serializedStore = serialize(store.getState())
   const chunkNames = flushChunkNames()
   const { js, styles, cssHash } = flushChunks(clientStats, { chunkNames })
 
   console.log('REQUESTED PATH:', req.path)
   console.log('CHUNK NAMES', chunkNames)
 
+
   res.send(`<!doctype html>
       <html>
         <head>
           <meta charset="utf-8">
-          <title>redux-first-router-demo</title>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title>${getPageTitle(store.getState())}</title>
+          <meta name="description" content="">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
           ${styles}
-          <link rel="stylesheet prefetch" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         </head>
         <body>
-          <script>window.REDUX_STATE = ${serializedStore}</script>
+          <script>window.REDUX_STATE = ${serialize(store.getState())}</script>
           <div id="root" style="height:100%">${appString}</div>
           ${cssHash}
           <script type='text/javascript' src='/static/vendor.js'></script>
@@ -41,4 +44,5 @@ export default ({ clientStats }) => async (req, res, next) => {
 const createApp = (App, store) => (
   <Provider store={store}>
     <App />
-  </Provider>)
+  </Provider>
+)

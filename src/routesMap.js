@@ -1,5 +1,4 @@
 import { redirect, NOT_FOUND } from 'redux-first-router'
-import { fetchData } from './utils'
 import {
   HOME_PAGE,
   LOGIN_PAGE,
@@ -9,24 +8,42 @@ import {
   SUPPORT_PAGE,
   BLOG_PAGE
 } from 'actions/routerActions'
+// import { fetchData } from './utils'
 
 // the keys on the routesMap must match the keys on the `page` reducer
 
 export default {
-  [HOME_PAGE]: '/',
-  [LOGIN_PAGE]: '/login',
-  [SIGNUP_PAGE]: '/signup',
+  [HOME_PAGE]: {
+    path: '/',
+    title: 'Home'
+  },
+  [LOGIN_PAGE]: {
+    path: '/login',
+    title: 'Login'
+  },
+  [SIGNUP_PAGE]: {
+    path: '/signup',
+    title: 'Sign Up'
+  },
   [ABOUT_PAGE]: {
-    path: '/about'
+    path: '/about',
+    title: 'About'
   },
   [FEATURES_PAGE]: {
-    path: '/features'
+    path: '/features',
+    title: 'Features'
   },
   [SUPPORT_PAGE]: {
-    path: '/support'
+    path: '/support',
+    title: 'Support'
   },
   [BLOG_PAGE]: {
-    path: '/blog'
+    path: '/blog',
+    title: 'Blog'
+  },
+  [NOT_FOUND]: {
+    path: '/not-found',
+    title: 'Not Found'
   }
 
   // LIST: {

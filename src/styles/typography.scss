@@ -1,3 +1,4 @@
+@import '~styles/theme';
 @import './mixins/media-queries.scss';
 @import './mixins/font-size';
 @import './mixins/line-height';
@@ -26,11 +27,16 @@ html{
 }
 
 body {
+  color: $onyx;
   font-family: $sans-serif-fonts;
+  font-weight: 400;
+  & * {
+    color: inherit;
+    font-family: inherit;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $sans-serif-fonts;
   margin: 1em 0 .5em 0;
 }
 

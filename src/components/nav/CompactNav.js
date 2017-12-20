@@ -6,7 +6,6 @@ import {
   active,
   burgerIcon,
   burgerWrapper,
-  navBrand,
   navViewCompact
 } from './NavbarStyles'
 

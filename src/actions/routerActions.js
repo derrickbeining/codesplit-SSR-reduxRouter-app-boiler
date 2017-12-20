@@ -38,7 +38,6 @@ export const goToBlogPage = () => ({
   type: BLOG_PAGE
 })
 
-
 export const goToPage = (type, category) => ({
   type,
   payload: category && { category }
