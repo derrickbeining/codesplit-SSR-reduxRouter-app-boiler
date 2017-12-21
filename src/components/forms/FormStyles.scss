@@ -7,11 +7,7 @@
 
 form {
   @include flexbox;
-  @include justify-content(space-around);
+  @include justify-content(space-evenly);
   @include flex-wrap(wrap);
-  & > * {
-    margin: .5em;
-    width: 100%;
-  }
 }
 

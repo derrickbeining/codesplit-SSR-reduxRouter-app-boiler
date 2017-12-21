@@ -1,4 +1,6 @@
 @import '~styles/theme';
+@import '~styles/mixins/animation';
+@import '~styles/mixins/keyframes';
 @import '~styles/mixins/flexbox';
 @import '~styles/mixins/transition';
 @import '~styles/mixins/transform';
@@ -8,6 +10,7 @@
 
 .textInputWrapper {
   position: relative;
+  width: 100%;
 
   & > label {
     @include transition(all 200ms ease);
@@ -19,7 +22,7 @@
     pointer-events: none;
     width: 100%;
     position: absolute;
-    z-index: z-index(oneUnder);
+    // z-index: z-index(oneUnder);
   }
 
   & > input[type="text"],
@@ -36,6 +39,7 @@
       color: $onyx;
       background: none;
       height: 3em;
+      margin: .5em 0;
       padding-left: 1em;
       position: relative;
       width: 100%;
@@ -85,8 +89,29 @@
       }
 
       & ~ hr:nth-of-type(2) {
-        @include transform(scaleX(1.002));
+        @include transform(scaleX(1));
       }
     }
   }
+}
+
+.errorWrapper {
+  @include animation(openSmooth 400ms ease-in);
+  @include keyframes(openSmooth) {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+    to   {
+      opacity: 1;
+    }
+  }
+  color: $deep-carmine;
+  font-size: .75em;
+  list-style: none;
+  margin: -.5em 0 1em 0;
+  padding: 0;
 }

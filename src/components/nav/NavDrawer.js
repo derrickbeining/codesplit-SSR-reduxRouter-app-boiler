@@ -15,9 +15,13 @@ import {
 // for anything that needs to target the navDrawer, e.g. toggleNavDrawer action
 
 const NavDrawer = ({ navDrawerOpen, fullNavbar }) => {
-  const maybeActiveClass = navDrawerOpen ? active : ''
+  const navProps = {
+    id: 'navDrawer',
+    className: `${navDrawer} ${navDrawerOpen ? active : ''}`,
+    tabIndex: navDrawerOpen ? 0 : -1
+  }
   return (
-    <nav id='navDrawer' className={`${navDrawer} ${maybeActiveClass}`}>
+    <nav {...navProps}>
       <NavDrawerCloseButton />
       <NavbarSpacer />
       <ul className={navDrawerContainer}>

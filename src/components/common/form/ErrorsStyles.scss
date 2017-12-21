@@ -1,0 +1,23 @@
+@import '~styles/theme';
+@import '~styles/mixins/animation';
+@import '~styles/mixins/keyframes';
+
+.errorWrapper {
+  @include animation(openSmooth 400ms ease-in);
+  @include keyframes(openSmooth) {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+    to   {
+      opacity: 1;
+    }
+  }
+  color: $deep-carmine;
+  font-size: .75em;
+  margin: -.5em 0 1em 0;
+  width: 100%;
+}

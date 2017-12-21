@@ -1,5 +1,4 @@
 export default {
   email: '',
-  password: '',
-  confirmPassword: ''
+  password: ''
 }

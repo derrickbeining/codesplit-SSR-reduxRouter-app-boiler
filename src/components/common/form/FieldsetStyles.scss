@@ -1,0 +1,8 @@
+@import '~styles/mixins/flexbox';
+
+.fieldsetContainer {
+  @include flexbox;
+  @include justify-content(space-around);
+  @include flex-wrap(wrap);
+  width: 100%;
+}

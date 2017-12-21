@@ -1,45 +1,43 @@
 import React from 'react'
-import { Control, Form, actions } from 'react-redux-form'
-import asyncGetZXCVBN from 'components/forms/HOCs/asyncGetZXCVBN'
-import TextInput from 'components/common/form/TextInput'
+import { Form } from 'react-redux-form'
+import Errors, { isDirtyAndBlurred } from 'components/common/form/Errors'
+import EmailInput from 'components/common/form/EmailInput'
+import PasswordFieldset from 'components/common/form/PasswordFieldset'
+import emailValidators, { emailErrorMsgs } from 'components/forms/validators/email'
 import styles from './FormStyles'
 
 const SignupForm = props => {
-  console.log(props)
   return (
     <Form
-      model='login'
-      hideNativeErrors
+      model='signup'
+      // hideNativeErrors
       validators={{
-
+        '': {
+          passwordsMatch: vals => vals.password === vals.confirmPassword
+        }
       }}
       onSubmit={inputs => console.log(inputs)}
     >
-      <Control.text
+      <EmailInput
         autoFocus
-        component={TextInput}
-        id='login.email'
-        label='Email'
-        model='login.email'
-        type='email'
-        validateOn='blur'
-        withFieldValue
+        controlProps={{
+          id: 'signup.email',
+          label: 'Email',
+          required: true
+        }}
+        errorMsgs={emailErrorMsgs}
+        model='signup.email'
+        validators={emailValidators}
       />
 
-      <Control.text
-        component={TextInput}
-        id='login.password'
-        label='Password'
-        model='login.password'
-        type='password'
-      />
+      <PasswordFieldset model='signup' />
 
-      <Control.text
-        component={TextInput}
-        id='login.confirmPassword'
-        label='Confirm Password'
-        model='login.confirmPassword'
-        type='password'
+      <Errors
+        messages={{
+          passwordsMatch: 'Passwords do not match'
+        }}
+        model='signup'
+        show={isDirtyAndBlurred}
       />
 
       {/* <Control.button /> */}
@@ -48,4 +46,4 @@ const SignupForm = props => {
   )
 }
 
-export default asyncGetZXCVBN(SignupForm)
+export default SignupForm

@@ -1,12 +1,19 @@
 import React from 'react'
-import { Control, Errors } from 'react-redux-form'
+import { Control } from 'react-redux-form'
+import Errors, { isDirtyAndBlurred } from './Errors'
 import {
-  errorWrapper,
   invalid,
   textInputWrapper
 } from './TextInputStyles'
 
-const CustomTextInput = ({ label, id, withFieldValue, fieldValue = {}, ...props }) => {
+const CustomTextInput = ({
+  errorMsgs,
+  id,
+  label,
+  fieldValue = {},
+  withFieldValue,
+  ...props
+}) => {
   const { valid, pristine } = fieldValue
   const validityClass = !pristine && !valid ? invalid : ''
   return (
@@ -19,25 +26,21 @@ const CustomTextInput = ({ label, id, withFieldValue, fieldValue = {}, ...props 
   )
 }
 
-export default ({ component, ...props }) => {
+export default ({ component, mapProps, ...props }) => {
   return (
-    <div>
+    <div className={textInputWrapper}>
       <Control.text
         component={CustomTextInput}
+        mapProps={{ model: props => props.model, ...mapProps }}
         withFieldValue
         {...props}
       />
-      {props.errorMessages && (
-        <Errors
-          component='li'
-          model={props.model}
-          messages={props.errorMessages}
-          show={whenTouchedAndBlurred}
-          wrapper={customErrorWrapper}
-        />)}
+
+      <Errors
+        model={props.model}
+        messages={props.errorMsgs}
+        show={isDirtyAndBlurred}
+      />
     </div>
   )
 }
-
-const whenTouchedAndBlurred = field => field.touched && !field.focus
-const customErrorWrapper = props => <ul className={errorWrapper}>{props.children}</ul>

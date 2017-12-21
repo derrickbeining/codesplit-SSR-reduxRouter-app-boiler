@@ -1,0 +1,38 @@
+@import '~styles/theme';
+@import '~styles/mixins/media-queries';
+@import '~styles/mixins/shadow-by-depth';
+
+.modalOuter {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+}
+
+.modalInner {
+  background-color: $eggshell;
+  border: 0px solid $neutral;
+  border-radius: 3px;
+  padding: 2em;
+  transform: translateY(-10%);
+  transition: box-shadow 250ms ease,
+              width 500ms ease-in-out;
+  @include shadow-by-depth(4);
+  @include for-phone-only {
+    width: 95%;
+  }
+  @include for-tablet-portrait-up {
+    max-width: 600px;
+    width: 70%;
+  }
+  @include for-tablet-landscape-up {
+    max-width: 600px;
+    width: 50%;
+  }
+
+  &:hover {
+    @include shadow-by-depth(2);
+  }
+}

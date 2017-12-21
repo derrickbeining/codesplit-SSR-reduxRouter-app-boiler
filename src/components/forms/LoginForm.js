@@ -1,30 +1,15 @@
 import React from 'react'
-import { Form } from 'react-redux-form'
+import { Form, Control } from 'react-redux-form'
+import Errors from 'components/common/form/Errors'
 import EmailInput from 'components/common/form/EmailInput'
 import PasswordInput from 'components/common/form/PasswordInput'
-import {
-  isRequired,
-  isEmail,
-  lengthIsInRange,
-  passwordsMatch
-} from './validators'
+import emailValidators, { emailErrorMsgs } from 'components/forms/validators/email'
 import styles from './FormStyles'
 
 const LoginForm = props => {
   return (
     <Form
       model='login'
-      // hideNativeErrors
-      validators={{
-        email: {
-          isRequired,
-          isEmail,
-          lengthIsInRange: lengthIsInRange(5, 100)
-        }
-        // password:{{
-
-        // }}
-      }}
       onSubmit={inputs => console.log(inputs)}
     >
       <EmailInput
@@ -34,8 +19,10 @@ const LoginForm = props => {
           label: 'Email',
           required: true
         }}
+        errorMsgs={emailErrorMsgs}
         model='login.email'
         validateOn='blur'
+        validators={emailValidators}
       />
 
       <PasswordInput
@@ -44,13 +31,7 @@ const LoginForm = props => {
         model='login.password'
       />
 
-      <PasswordInput
-        id='login.confirmPassword'
-        label='Confirm Password'
-        model='login.confirmPassword'
-      />
-
-      {/* <Control.button /> */}
+      <Control.button model='login'>Log In</Control.button>
 
     </Form>
   )

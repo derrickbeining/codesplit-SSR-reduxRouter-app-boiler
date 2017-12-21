@@ -12,7 +12,7 @@
     to {
       opacity: 1;
       position: static;
-      z-index: z-index(auto);
+      z-index: auto;
     }
   }
   @for $idx from 1 to 25 {
