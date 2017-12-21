@@ -1,10 +1,10 @@
 import React from 'react'
 import ButtonDefault from './ButtonDefault'
-import { btnAffirmative } from './ButtonAffirmativeStyles'
+import { btnNegative } from './ButtonNegativeStyles'
 
 export default ({ children, className, ...props }) => {
   return (
-    <ButtonDefault className={`${btnAffirmative} ${className}`} {...props}>
+    <ButtonDefault className={`${btnNegative} ${className}`} {...props}>
       {children}
     </ButtonDefault>
   )

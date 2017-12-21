@@ -1,5 +1,29 @@
+@import '~styles/theme';
+@import '~styles/mixins/animation';
+@import '~styles/mixins/keyframes';
+@import '~styles/mixins/shadow-by-depth';
+@import '~styles/mixins/text-shadow';
 
+button {
+  background-color: $neutral;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 1em 1.5em;
+  transition: box-shadow 250ms ease;
+  @include shadow-by-depth(1);
+  text-shadow: rgba(0, 0, 0, .4) 0 1px 5px;
 
-.btnDefault {
+  &:active {
+    @include animation(btnPress 1ms ease-in forwards);
+    @include keyframes(btnPress) {
+      from {
+        @include shadow-by-depth(1);
+      }
 
+      to {
+        @include shadow-by-depth(0);
+      }
+    }
+  }
 }

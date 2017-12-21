@@ -4,6 +4,7 @@
 @import '~styles/mixins/flexbox';
 @import '~styles/mixins/hide';
 @import '~styles/mixins/media-queries';
+@import '~styles/mixins/shadow-by-depth';
 @import '~styles/mixins/show';
 @import '~styles/mixins/slide-in-from';
 @import '~styles/mixins/slide-out-to';
@@ -41,14 +42,18 @@
 .navbar {
   align-items: center;
   background-color: $raisin;
-  box-shadow:  0px 4px 10px 0px rgba(0, 0, 0, 0.3);
-
   color: $eggshell;
   height: 4rem;
   position: fixed;
   top: 0;
+  transition: box-shadow 250ms ease;
   width: 100%;
   z-index: z-index(navbar);
+  @include shadow-by-depth(1);
+
+  &:hover {
+    @include shadow-by-depth(2);
+  }
 
   a {
     @include align-items(center);

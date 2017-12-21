@@ -1,8 +1,9 @@
 import React from 'react'
-import { Form } from 'react-redux-form'
+import { Form, Control } from 'react-redux-form'
 import Errors, { isDirtyAndBlurred } from 'components/common/form/Errors'
 import EmailInput from 'components/common/form/EmailInput'
 import PasswordFieldset from 'components/common/form/PasswordFieldset'
+import ButtonAffirmative from 'components/common/button/ButtonAffirmative'
 import emailValidators, { emailErrorMsgs } from 'components/forms/validators/email'
 import styles from './FormStyles'
 
@@ -40,7 +41,12 @@ const SignupForm = props => {
         show={isDirtyAndBlurred}
       />
 
-      {/* <Control.button /> */}
+      <Control.button
+        component={ButtonAffirmative}
+        model='signin'
+      >
+      Sign In
+      </Control.button>
 
     </Form>
   )

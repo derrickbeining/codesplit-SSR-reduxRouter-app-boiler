@@ -3,12 +3,14 @@ import { Form, Control } from 'react-redux-form'
 import Errors from 'components/common/form/Errors'
 import EmailInput from 'components/common/form/EmailInput'
 import PasswordInput from 'components/common/form/PasswordInput'
+import ButtonAffirmative from 'components/common/button/ButtonAffirmative'
 import emailValidators, { emailErrorMsgs } from 'components/forms/validators/email'
 import styles from './FormStyles'
 
 const LoginForm = props => {
   return (
     <Form
+      hideNativeErrors
       model='login'
       onSubmit={inputs => console.log(inputs)}
     >
@@ -31,7 +33,12 @@ const LoginForm = props => {
         model='login.password'
       />
 
-      <Control.button model='login'>Log In</Control.button>
+      <Control.button
+        component={ButtonAffirmative}
+        model='login'
+      >
+      Log In
+      </Control.button>
 
     </Form>
   )

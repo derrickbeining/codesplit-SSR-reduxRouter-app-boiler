@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './ButtonAffirmativeStyles'
+import { btnDefault } from './ButtonDefaultStyles'
 
 export default ({ children, ...props }) => {
   return (
-    <button className={styles.btnDefault}>
+    <button {...props}>
       {children}
     </button>
   )
