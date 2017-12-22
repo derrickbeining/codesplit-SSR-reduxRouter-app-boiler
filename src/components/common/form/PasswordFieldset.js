@@ -13,6 +13,7 @@ export default class PasswordFieldset extends React.Component {
   }
 
   componentDidMount() {
+    // kind of large module, want to load it async to render quicker
     import('components/forms/validators/passwordIsSecure')
       .then(fns => this.setState({
         passwordIsSecure: fns.default,

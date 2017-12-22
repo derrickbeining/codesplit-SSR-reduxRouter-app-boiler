@@ -11,7 +11,7 @@ const SignupForm = props => {
   return (
     <Form
       model='signup'
-      // hideNativeErrors
+      hideNativeErrors
       validators={{
         '': {
           passwordsMatch: vals => vals.password === vals.confirmPassword
