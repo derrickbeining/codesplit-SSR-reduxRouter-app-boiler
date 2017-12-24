@@ -30,7 +30,7 @@ export const isAllowed = (type, state) => {
 // verification methods:
 
 const fakeUser = { roles: ['admin'] }
-const userFromState = ({ jwToken, user }) => jwToken === 'real' && fakeUser
+const userFromState = ({ jwToken/* , user */ }) => jwToken === 'real' && fakeUser
 const jwt = {
   verify: (jwToken, secret) => jwToken === 'real' && fakeUser
 }

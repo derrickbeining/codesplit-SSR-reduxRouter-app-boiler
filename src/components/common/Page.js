@@ -1,6 +1,6 @@
 import React from 'react'
 import NavbarSpacer from 'components/nav/NavbarSpacer'
-import styles from './PageStyle'
+import styles from './PageStyles'
 
 const Page = ({ children }) => (
   <div className={styles.page}>

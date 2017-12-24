@@ -1,0 +1,25 @@
+@import '~styles/theme';
+@import '~styles/mixins/shadow-by-depth';
+@import '~styles/mixins/media-queries';
+
+.paper {
+  background: $white;
+  border-radius: 1px;
+
+  @include for-phone-only {
+    padding: 1em 1em 2em;
+  }
+  @include for-tablet-portrait-up {
+    padding: 1em 2em 2em;
+  }
+  @include for-tablet-landscape-up {
+    padding: 1em 3em 2em;
+  }
+}
+
+@for $level from 0 through 4 {
+  .paper[data-elevation="#{$level}"] {
+    @include shadow-by-depth($level);
+  }
+
+}

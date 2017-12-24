@@ -10,7 +10,10 @@ import {
 const NavDrawerCloseButton = ({ toggleNavDrawer }) => {
   return (
     <div className={closeDrawerButtonContainer}>
-      <div className={closeDrawerButtonPositioner} onClick={toggleNavDrawer}>
+      <div
+        className={closeDrawerButtonPositioner}
+        onClick={toggleNavDrawer}
+      >
         <div className={closeDrawerButton} />
       </div>
     </div>

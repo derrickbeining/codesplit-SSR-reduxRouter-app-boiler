@@ -37,7 +37,7 @@ const renderGroup = (name, contents) => (
   </div>
 )
 
-export const renderFullNavbar = contents => {
+export default contents => {
   const groupedContents = reduceToGroups(contents)
   return Object.keys(groupedContents).map(groupName => {
     return renderGroup(groupName, groupedContents[groupName])

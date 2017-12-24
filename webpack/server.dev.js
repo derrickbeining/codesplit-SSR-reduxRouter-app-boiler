@@ -11,7 +11,7 @@ const res = p => path.resolve(__dirname, p)
 const externals = fs
   .readdirSync(res('../node_modules'))
   .filter(x =>
-    !/\.bin|react-universal-component|require-universal-module|webpack-flush-chunks/.test(x))
+    !/\.bin|react-universal-component|require-universal-module|webpack-flush-chunks|react-portal-universal/.test(x))
   .reduce((externals, mod) => {
     externals[mod] = `commonjs ${mod}`
     return externals
@@ -32,6 +32,15 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          configFile: '.eslintrc.js'
+        }
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,

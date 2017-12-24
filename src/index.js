@@ -7,25 +7,25 @@ import App from 'components/pages/App'
 import 'normalize.css'
 import configureStore from './configureStore'
 
-
 const history = createHistory()
 const { store } = configureStore(history, window.REDUX_STATE)
 
 const render = App => {
-  const root = document.getElementById('root')
-
   ReactDOM.hydrate(
     <AppContainer>
       <Provider store={store}>
         <App />
       </Provider>
     </AppContainer>,
-    root
+
+    document.getElementById('root')
   )
 }
 
 render(App)
 
+
+// Hot module reloading:
 if (module.hot && process.env.NODE_ENV === 'development') {
   module.hot.accept('./components/pages/App', () => {
     // eslint-disable-next-line

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { navViewLarge } from './NavbarStyles'
-import { renderFullNavbar } from './utils/renderFullNavbar'
+import renderFullNavbar from './utils/renderFullNavbar'
 
 const FullNav = ({ fullNavbar }) => {
   return (

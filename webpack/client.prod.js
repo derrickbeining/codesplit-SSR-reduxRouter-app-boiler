@@ -22,6 +22,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          configFile: '.eslintrc.js'
+        }
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader'

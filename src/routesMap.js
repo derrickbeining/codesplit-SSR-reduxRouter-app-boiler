@@ -1,4 +1,4 @@
-import { redirect, NOT_FOUND } from 'redux-first-router'
+import { /* redirect, */ NOT_FOUND } from 'redux-first-router'
 import {
   HOME_PAGE,
   LOGIN_PAGE,
