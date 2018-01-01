@@ -4,7 +4,6 @@ import styles from './PageStyles'
 
 const Page = ({ children }) => (
   <div className={styles.page}>
-    <NavbarSpacer />
     {children}
   </div>
 )

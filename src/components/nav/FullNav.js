@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { navViewLarge } from './NavbarStyles'
+import { navbarContainerInner, navViewLarge } from './NavbarStyles'
 import renderFullNavbar from './utils/renderFullNavbar'
 
 const FullNav = ({ fullNavbar }) => {
   return (
     <div className={navViewLarge}>
-      {renderFullNavbar(fullNavbar)}
+      <ul className={navbarContainerInner}>
+        {renderFullNavbar(fullNavbar)}
+      </ul>
     </div>
   )
 }

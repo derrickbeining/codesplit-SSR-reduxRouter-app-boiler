@@ -31,20 +31,20 @@ export default Component => {
       }
     }
 
-    handleScrollDown({ target: { scrollTop } }) {
-      if (scrollTop > 100 && scrollTop > this.lastScrollY) {
+    handleScrollDown({ pageY }) {
+      if (pageY > 100 && pageY > this.lastScrollY) {
         removeScrollListener(this.handleScrollDown)
         this.setState({ show: false })
       }
-      this.lastScrollY = scrollTop
+      this.lastScrollY = pageY
     }
 
-    handleScrollUp({ target: { scrollTop } }) {
-      if (scrollTop < this.lastScrollY) {
+    handleScrollUp({ pageY }) {
+      if (pageY < this.lastScrollY) {
         removeScrollListener(this.handleScrollUp)
         this.setState({ show: true })
       }
-      this.lastScrollY = scrollTop
+      this.lastScrollY = pageY
     }
 
     render() {

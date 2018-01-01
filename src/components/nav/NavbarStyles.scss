@@ -15,14 +15,13 @@
 @import '~sass-burger';
 
 .burgerIcon {
-  @include burger(2.5em, .4em, .3em, $eggshell, 1px);
-
-  z-index: z-index(navbar) + 1;;
+  @include burger(2.5em, .4em, .3em, $primary2, 1px);
+  z-index: z-index(navbar) + 1;
 }
 
 .burgerWrapper {
   @include align-items(center);
-  @include flexbox();
+  @include flexbox;
   @include justify-content(center);
   cursor: pointer;
   height: 100%;
@@ -33,7 +32,7 @@
   z-index: z-index(navbar) - 1;
 
   &.active .burgerIcon {
-    @include burger-to-cross();
+    @include burger-to-cross;
   }
 }
 
@@ -41,19 +40,11 @@
 
 .navbar {
   align-items: center;
-  background-color: $raisin;
-  color: $eggshell;
   height: 4rem;
   position: fixed;
   top: 0;
-  transition: box-shadow 250ms ease;
   width: 100%;
   z-index: z-index(navbar);
-  @include shadow-by-depth(1);
-
-  &:hover {
-    @include shadow-by-depth(2);
-  }
 
   a {
     @include align-items(center);
@@ -76,12 +67,9 @@
 }
 
 .navbarSpacer {
-  // padding: 1em .5em;
-  z-index: z-index(navbar) - 1;
   height: 4em;
+  z-index: z-index(navbar) - 1;
 }
-
-
 
 .activeNavLink {
   & + .selectionIndicator {
@@ -96,12 +84,11 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: -1;
 }
 
 .navbarContainerInner {
-  @include container-std();
-  @include flexbox();
+  @include container-std;
+  @include flexbox;
   height: 4rem;
   justify-content: space-between;
   list-style: none;
@@ -109,13 +96,13 @@
 }
 
 .navItemGroupLeft {
-  @include flexbox();
+  @include flexbox;
   flex: 3 2 auto;
   order: 1;
 }
 
 .navItemGroupMiddle {
-  @include flexbox();
+  @include flexbox;
   flex: 8 6 auto;
   justify-content: space-evenly;
   order: 2;
@@ -126,7 +113,7 @@
 }
 
 .navItemGroupRight {
-  @include flexbox();
+  @include flexbox;
   flex: 3 2 auto;
   justify-content: flex-end;
   order: 3;
@@ -137,35 +124,49 @@
 }
 
 .navItem {
-  @include flexbox();
+  @include flexbox;
   align-items: center;
   color: $eggshell;
-  position: relative;
   margin: 0;
+  position: relative;
 }
 
 .navViewLarge {
-  // @include transition(transform);
+  @include shadow-by-depth(1);
+  @include flexbox;
   @include for-phone-only {
     display: none;
   }
-  @include flexbox();
+
+  background-color: $raisin;
+  color: $eggshell;
   height: 4rem;
   justify-content: space-between;
   list-style: none;
   padding: 0;
+  transition: box-shadow 250ms ease;
   width: 100%;
+
+  &:hover {
+    @include shadow-by-depth(2);
+  }
 
 
 }
 
 .navViewCompact {
+  @include flexbox;
   @include for-tablet-portrait-up {
     display: none;
   }
-  @include flexbox();
+  background: transparent;
+  color: $primary1;
   justify-content: center;
   width: 100%;
+
+  a {
+    color: $primary1;
+  }
 }
 
 .hideNav {

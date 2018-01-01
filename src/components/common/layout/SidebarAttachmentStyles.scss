@@ -1,0 +1,36 @@
+@import '~styles/mixins/media-queries';
+
+.sidebarAttachment {
+  display: flex;
+  position: relative;
+}
+
+.sidebarSection {
+  background: black;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  @include for-phone-only {
+    width: 85%;
+  }
+  @include for-tablet-portrait-up {
+    width: 50%;
+  }
+  @include for-tablet-landscape-up {
+    width: 30%;
+  }
+  @include for-desktop-up {
+    width: 20%;
+  }
+}
+
+.mainSection {
+  width: 100%;
+  @include for-desktop-up {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+  }
+}

@@ -34,7 +34,7 @@ export default ({ clientStats }) => async (req, res/* , next */) => {
       </head>
       <body>
         <script>window.REDUX_STATE = ${serialize(store.getState())}</script>
-        <div id="root" style="height:100%">${appString}</div>
+        <div id="root">${appString}</div>
         <div id="modal-root"></div>
         ${cssHash}
         <script type='text/javascript' src='/static/vendor.js'></script>

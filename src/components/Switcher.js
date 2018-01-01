@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { TransitionGroup, Transition } from 'transition-group'
 import universal from 'react-universal-component'
 import Page from 'components/common/Page'
-import toggleNavDrawer from 'actions/navDrawerActions'
 import Loading from './Loading'
 import Err from './Error'
 import isLoading from '../selectors/isLoading'
@@ -18,7 +17,7 @@ const UniversalComponent = universal(({ page }) => import(`./pages/${page}`), {
 })
 
 const Switcher = ({
-  page, direction, isLoading, toggleNavDrawer
+  page, direction, isLoading
 }) => (
   <TransitionGroup
     component='div'
@@ -47,4 +46,4 @@ const mapState = ({ page, direction, ...state }) => ({
   isLoading: isLoading(state)
 })
 
-export default connect(mapState, { toggleNavDrawer })(Switcher)
+export default connect(mapState)(Switcher)

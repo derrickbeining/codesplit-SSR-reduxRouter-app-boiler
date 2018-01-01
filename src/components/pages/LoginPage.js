@@ -5,11 +5,11 @@ import LoginForm from 'components/forms/LoginForm'
 import { goToSignupPage } from 'actions/routerActions'
 
 const LoginPage = props => (
-  <Modal>
+  <React.Fragment>
     <h1 className={undefined}>Login</h1>
     <LoginForm />
     <p>No account? <Link to={goToSignupPage()}>Sign up!</Link></p>
-  </Modal>
+  </React.Fragment>
 )
 
 export default LoginPage

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import hideNavOnScroll from 'components/nav/HOCs/hideNavOnScroll'
 import CompactNav from './CompactNav'
 import FullNav from './FullNav'
+import NavbarSpacer from './NavbarSpacer'
 import {
   navbar,
   navbarContainerInner,
@@ -14,12 +15,17 @@ const Navbar = ({ show }) => {
   const visibilityClass = show ? showNav : hideNav
 
   return (
-    <nav className={`${navbar} ${visibilityClass}`}>
-      <ul className={navbarContainerInner}>
+    <Fragment>
+      <nav className={`${navbar} ${visibilityClass}`}>
+        {/* <ul className={navbarContainerInner}> */}
         <CompactNav />
         <FullNav />
-      </ul>
-    </nav>
+        {/* </ul> */}
+      </nav>
+
+      <NavbarSpacer />
+
+    </Fragment>
   )
 }
 

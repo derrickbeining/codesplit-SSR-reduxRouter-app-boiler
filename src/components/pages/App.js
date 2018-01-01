@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Navbar from 'components/nav/Navbar'
 import NavDrawer from 'components/nav/NavDrawer'
 import Blur from 'components/common/Blur'
-import Sidebar from 'components/Sidebar'
+// import Sidebar from 'components/Sidebar'
 import Switcher from 'components/Switcher'
 import styles from './AppStyles'
 
