@@ -1,6 +1,8 @@
 import React from 'react'
-import { createUniversalPortal } from 'react-portal-universal'
 
 export default ({ child$ren, domNodeQuerySelector }) => {
-  return createUniversalPortal(child$ren, domNodeQuerySelector)
+  return React.createPortal(
+    child$ren,
+    document.querySelector(domNodeQuerySelector)
+  )
 }

@@ -1,19 +1,15 @@
-// @flow
-
 import * as React from 'react'
 import styles from './PaperStyles'
 
-type Props = {
-  children: React.Node,
-  className?: string,
-  elevation?: number
-}
-
-function Paper({ children, className, elevation }: Props) {
-  const extraClassName: string = className || ''
+function Paper(props) {
+  const {
+    children,
+    className = '',
+    elevation = 1
+  } = props
   return (
     <section
-      className={`${styles.paper} ${extraClassName}`}
+      className={`${styles.paper} ${className}`}
       data-elevation={elevation}
     >
       {children}
@@ -21,9 +17,5 @@ function Paper({ children, className, elevation }: Props) {
   )
 }
 
-Paper.defaultProps = {
-  className: '',
-  elevation: 1
-}
 
 export default Paper

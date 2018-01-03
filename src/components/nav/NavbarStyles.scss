@@ -15,7 +15,7 @@
 @import '~sass-burger';
 
 .burgerIcon {
-  @include burger(2.5em, .4em, .3em, $primary2, 1px);
+  @include burger(2.5em, .4em, .3em, $eggshell, 1px);
   z-index: z-index(navbar) + 1;
 }
 
@@ -40,6 +40,8 @@
 
 .navbar {
   align-items: center;
+  background-color: $raisin;
+  color: $eggshell;
   height: 4rem;
   position: fixed;
   top: 0;
@@ -138,8 +140,6 @@
     display: none;
   }
 
-  background-color: $raisin;
-  color: $eggshell;
   height: 4rem;
   justify-content: space-between;
   list-style: none;
@@ -159,14 +159,11 @@
   @include for-tablet-portrait-up {
     display: none;
   }
-  background: transparent;
-  color: $primary1;
+
+  height: 100%;
   justify-content: center;
   width: 100%;
 
-  a {
-    color: $primary1;
-  }
 }
 
 .hideNav {

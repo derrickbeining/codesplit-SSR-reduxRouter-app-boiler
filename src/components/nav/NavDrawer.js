@@ -23,7 +23,7 @@ const NavDrawer = ({ navDrawerOpen, fullNavbar }) => {
   return (
     <nav {...navProps}>
       <NavDrawerCloseButton />
-      <NavbarSpacer />
+
       <ul className={navDrawerContainer}>
         <ul className={`${navDrawerContainer} ${navbarContentsHolder}`}>
           {fullNavbar.map(route => (
@@ -38,62 +38,6 @@ const NavDrawer = ({ navDrawerOpen, fullNavbar }) => {
             </li>
           ))}
         </ul>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
-        <li className={navDrawerItem}>Item 1</li>
       </ul>
     </nav>
   )

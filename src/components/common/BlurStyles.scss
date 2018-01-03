@@ -15,11 +15,6 @@
 
   &.isActive {
     background: rgba(0, 0, 0, .2);
-    @include filter(blur(3px));
-
-    & > * {
-      @include transform(scale(.99));
-
-    }
+    @include filter(blur(1px));
   }
 }

@@ -6,7 +6,6 @@ import FullNav from './FullNav'
 import NavbarSpacer from './NavbarSpacer'
 import {
   navbar,
-  navbarContainerInner,
   hideNav,
   showNav
 } from './NavbarStyles'
@@ -17,10 +16,8 @@ const Navbar = ({ show }) => {
   return (
     <Fragment>
       <nav className={`${navbar} ${visibilityClass}`}>
-        {/* <ul className={navbarContainerInner}> */}
         <CompactNav />
         <FullNav />
-        {/* </ul> */}
       </nav>
 
       <NavbarSpacer />
